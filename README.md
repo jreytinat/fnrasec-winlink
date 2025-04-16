@@ -63,7 +63,7 @@ Voici la procédure pour mettre à jour les templates sur votre ordinateur :
 2. Télécharger le contenu du répertoire le plus récent du partage.
 > Vous avez récupéré le fichier d'archive (zip) sur votre ordinateur
 
-1. Décompresser dans le dossier `C:\RMS Express\Global Folders\Templates\FNRASEC` ![Screen : Décompresser le zip](./img/screen4.jpg)
+1. Décompresser dans le dossier `C:\RMS Express\Global Folders\Templates\FNRASEC`.
 
 > Voilà vous pouvez maintenant utiliser les nouveaux templates dans Winlink
 
