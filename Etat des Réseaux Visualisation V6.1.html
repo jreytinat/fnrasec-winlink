@@ -1,0 +1,257 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+	<head>
+	<meta charset="utf-8" />
+	<title>Etat des Réseaux Visualisation V6.1</title>
+	<link rel="stylesheet" type="text/css" href="file://C:\RMS Express\Global Folders\Templates\FNRASEC\inc\CommonStyles.css" />
+
+		<script>
+			// Correction des caractères
+			function SetAccents()
+			{
+				var LabelElement = document.getElementById("vFormType");
+				
+				document.getElementById("To_Name_Dest").innerHTML = setacc(document.getElementById("To_Name_Dest").innerHTML); 
+				document.getElementById("Fm_Name_Exp").innerHTML = setacc(document.getElementById("Fm_Name_Exp").innerHTML); 
+				
+				document.getElementById("Lieu_Inc").innerHTML = setacc(document.getElementById("Lieu_Inc").innerHTML); 
+				document.getElementById("EventType").innerHTML = setacc(document.getElementById("EventType").innerHTML); 
+				document.getElementById("vOther").innerHTML = setacc(document.getElementById("vOther").innerHTML); 
+				
+				
+				document.getElementById("vCom9a").innerHTML = setacc(document.getElementById("vCom9a").innerHTML); 
+				document.getElementById("vCom9b").innerHTML = setacc(document.getElementById("vCom9b").innerHTML); 
+				document.getElementById("vCom9c").innerHTML = setacc(document.getElementById("vCom9c").innerHTML); 
+				document.getElementById("vCom9d").innerHTML = setacc(document.getElementById("vCom9d").innerHTML); 
+				document.getElementById("vCom9e").innerHTML = setacc(document.getElementById("vCom9e").innerHTML); 
+				document.getElementById("vCom9f").innerHTML = setacc(document.getElementById("vCom9f").innerHTML); 
+				document.getElementById("vCom9g").innerHTML = setacc(document.getElementById("vCom9g").innerHTML); 
+			}
+		
+			// Lancement des modifications au chargement
+			function OnLoadModifications ()
+			{
+				SetAccents();
+				ChangeFormLabel("{var vActivityType}", "HeaderText");
+			}
+		</script>
+	</head>
+	
+<!-- Début du formulaire -->
+<body onload="OnLoadModifications()">
+
+	<form 
+		onsubmit="return confirm('Cliquez sur OK et fermez la fenêtre de navigateur vide.');" 
+		method="post" id="Etat des réseaux" 
+		enctype="multipart/form-data" 
+		action="http://{FormServer}:{FormPort}">
+
+		<table id="HeaderBody" class="table_borders_header">
+			<!-- Ligne 1 Logos -->
+				<table width="980px" style="border:3px solid orange" cellpadding="3px" cellspacing="3px">
+			<tr>
+				<td colspan="2" height="35" align="center">
+					 <img src="file://C:\RMS Express\Global Folders\Templates\FNRASEC\inc\Logo_FNRASEC_DGSCGC 2.jpg">  </img>
+				</td>
+				
+			</tr>
+		</table>
+		<!-- Eléments du message ------------------------------------------------------>
+		<table id="MessageBlocks1" class="table_borders">
+
+			<!-- Ligne 2 Type de Message -->
+			<tr valign="middle" align="center" bgcolor="Gainsboro">
+				<td colspan="3" height="35">
+					<span class="LblMessage"> Etat des réseaux</span>
+				</td>
+			</tr>
+			<table width="980px" style="border:3px solid orange; border-top-style: none;">
+			<!-- Ligne 4 : Numéro du message  -->
+			<tr valign="top">
+				<td colspan="3" class="Labels" style="height: 35px;">
+					<span class="Labels">1. Message N°: &nbsp;</span><span style="color:black;">{Var Seqnum}</span>&emsp;&emsp; 
+					<span class="Labels">Date & Heure : </span><span style="color:black;">{var DateTime}</span>&emsp;
+					<span class="Labels"> Station émettrice : </span><span style="color:black;">{var MsgSender}</span>&emsp;
+					
+			</tr>	
+			    <tr style="vertical-align: top;">
+				<td style="text-align: left; vertical-align: top; width:50%">
+				<span class="Labels">2. Indicatif Opérateur : 
+				&emsp;
+					<span id="ToStation" style="color:black;">{var vOper}</span>
+				&emsp;&emsp;&emsp;
+				<colspan="2" style="text-align: left; vertical-align: top;">
+					<span class="Labels">3. Autorité Expéditrice : 
+					<label id="Fm_Name_Exp">
+						&emsp;<span class="formtext">{Var Fm_Name_Exp}</span>
+					</label>
+					</span>
+				</td>
+				</tr>
+			<tr style="vertical-align: top;">
+				<td style="text-align: left; vertical-align: top; width:50%">
+				<span class="Labels">4. Indicatif Station Destinataire
+				&emsp;
+					<span id="ToStation" style="color:black;">{var vTo}</span>
+				</td>
+				</tr>
+				<tr>
+               <td>
+				<style="text-align: left; vertical-align: top; width:50%">
+					<span class="Labels">5. Autorité Destinataire :
+					<label 
+						&emsp;<span id="To_Name_Dest" class="formtext">{Var To_Name_Dest}</span>
+					</label>
+				</td>
+			</tr>
+			<!-- Ligne 5 : Degré d'urgence -->
+			<tr>
+				<td colspan="3" style="height: 25px; background-color: LightYellow;">
+					<span class="Labels">6. Priorité: </span>&emsp;&emsp;
+					<span class="Priority" >{var Priority}</span>
+				</td>
+			</tr>
+			<!-- Ligne 6 Lieu de l'incident ------------------------------------------------------------------>
+			<tr>
+				<td colspan="3" style="vertical-align: top;">
+					<span class="Labels">7. Lieu Incident : </span>&emsp;
+					<label id="Lieu_Inc" class="formtext">{var Lieu_Inc}</label>
+				</td>
+			</tr>
+			<!-- Ligne 7 Type d'évènement --------------------------------------------------------------------->
+			<tr>
+				<td colspan="3">
+					<span class="Labels">8. Evenement :</span>&nbsp;
+					<label id="EventType" class="formtext">{var vEvent}</label>&emsp;
+					<label id="vOther" class="formtext">{var vOther}</label>
+				</td>
+			</tr>
+			<!-- Ligne 8 Appréciation de la situation ---------------------------------------------------------->
+			
+		</table>
+		<!------------------------------------ Etats des Réseaux ----------------------------------------------------->
+		<table width="980px" style="border:3px solid orange; border-top-style: none;">
+			<!-- Description de l'état des réseaux routiers et fluides -->
+			<table>	<table id="MessageBlockBilan" class="table_borders">
+			<tr>
+				<td colspan="2">
+				<span class="Labels">9. Description de l'état des réseaux routiers et fluides</span>
+				</td>
+			</tr>
+			<!------------------------------------ Détail des incidents ---------------------------------------->
+			<tr>
+				<td class="style_par8">
+					&emsp;9a. Reste-t-il des Accès Routiers carrossables à la zone ? </p>
+			&emsp;&emsp;&emsp;
+				<class="style_par8_select" style="color:black;">
+					{Var V9a}
+				</td>
+				<td style="height: 30px">
+						<label id="vCom9a" class="formtext">{Var vCom9a}</label>
+				</td>
+			</tr>
+			</table>
+		      <table>	<table id="MessageBlockBilan" class="table_borders">
+			<tr>
+				<td class="style_par8">
+				&emsp;9b. Reste-t-il des Accès Routiers Tous Terrains à la zone ? </p>
+				&emsp;&emsp;&emsp;
+				<class="style_par8_select" style="color:black;">
+					{Var v9b}
+				</td>
+				<td style="height: 30px" >
+					<label id="vCom9b" class="formtext">{Var vCom9b}</label>
+				</td>
+			</tr>
+			</table>
+		      <table><table id="MessageBlockBilan" class="table_borders">
+			<tr>
+				<td class="style_par8">
+					&emsp;9c. Electricité coupée ? : </p>
+				&emsp;&emsp;&emsp;
+				<class="style_par8_select" style="color:black;">
+					{Var v9c}
+				</td>
+				<td >
+					<label id="vCom9c" class="formtext">{Var vCom9c}</label>
+				</td>
+			</tr>
+			</table>
+		      <table><table id="MessageBlockBilan" class="table_borders">
+			<tr>
+				<td class="style_par8">
+					&emsp;9d. réseau de Gaz coupé ? : </p>
+				&emsp;&emsp;&emsp;
+				<class="style_par8_select" style="color:black;">
+					{Var v9d}
+				</td>
+				<td >
+					<label id="vCom9d" class="formtext">{Var vCom9d}</label>
+				</td>
+			</tr>
+			</table>
+		      <table><table id="MessageBlockBilan" class="table_borders">
+			<tr>
+				<td class="style_par8">
+					&emsp;9e. réseau eau coupé ? : </p>
+				&emsp;&emsp;&emsp;
+				<class="style_par8_select" style="color:black;">
+					{Var v9e}
+				</td>
+				<td>
+					<label id="vCom9e" class="formtext">{Var vCom9e}</label>
+				</td>
+			</tr>
+			</table>
+		      <table><table id="MessageBlockBilan" class="table_borders">
+			<tr>
+				<td class="style_par8">
+					&emsp;9f. eau potable : </p>
+				&emsp;&emsp;&emsp;
+				<class="style_par8_select" style="color:black;">
+					{Var v9f}
+				</td>
+				<td>
+					 <label id="vCom9f" class="formtext">{Var vCom9f}</label>
+				</td>
+			</tr>
+			</table>
+		      <table><table id="MessageBlockBilan" class="table_borders">
+			<tr>
+				<td class="style_par8">
+					&emsp;9g. réseau de communication coupé ? :</p>
+					&emsp;&emsp;&emsp;
+				<class="style_par8_select" style="color:black;">
+					{Var v9g}
+			   </td>
+				<td>
+					<label id="vCom9g" class="formtext">{Var vCom9g}</label>
+				</td>
+			</tr>
+			</table>
+		   			
+		<!---------------------------------------------------------------------------------------->
+		<!-- Ligne de boutons 																	-->
+		<!---------------------------------------------------------------------------------------->
+		<table width="980px" style="border:3px solid orange; border-top-style: none;">
+			<tr>
+				<td colspan="3">&emsp;
+					<input  class="BtnPrint" id="printPageButton" onclick="javascript:window.print()" value=" Imprimer " enctype="multipart/form-data" type="button" />
+				</td>
+			</tr>
+
+			<!-- Dernière ligne : Descriptif du formulaire et version -->
+			<tr>
+				<td colspan="3" align="right">
+					<span class="LblVersion">Formulaire de visualisation de l'état des réseaux / Ver 6.1 base F1COB</span>
+				</td>
+			</tr>
+		</table>
+	</form>
+	
+	<!-- Scripts communs à tous les formulaires -->
+	<script type="text/javascript" src="file://C:\RMS Express\Global Folders\Templates\FNRASEC\inc\CommonFunctions.js" ></script>
+	<script type="text/javascript" src="file://C:\RMS Express\Global Folders\Templates\FNRASEC\inc\RestoreAccentuatedCharacters.js" ></script>
+		
+	</body>
+</html>

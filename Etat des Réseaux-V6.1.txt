@@ -1,0 +1,51 @@
+Form: Etat des Réseaux Saisie V6.1.html,Etat des Réseaux Visualisation V6.1.html
+
+To: <var vTo>
+Subject: [var vLieu> - <var Priority>] ETAT DES RESEAUX - Msg# <var SeqNum>
+Nature : <var Status>
+  
+ Type de message: <var vActivityType>
+1 N° Message: <var SeqNum> envoyé par <var Callsign> à <var DateTime>
+   Station Emettrice: <var MsgSender>
+2. Indicatif Opérateur : <var vOper>
+3. Autorité Expeditrice; <var Fm_Name_Exp>
+4 Station Destinatrice: <var vTo>
+5. Autorité Destinataire: <var To_Name_Dest>	
+6. Priorié: <var Priority>
+  Niveau de Confidentialité: <var vConfid>
+
+7. Lieu Incident: <var Lieu_Inc>
+9. Evenement: <var vEvent>
+     Si Autre  <var vOther>
+ 
+9. Catégories:
+
+	9a. Reste-t-il des Accès Routiers carrossable sur la Zone? <var v9a>
+		Commentaires: <var vCom9a>
+	   
+	9b. Reste-t-i des accès tous terrains sur la zone? <var v9b>
+		commentaires <var vCom9b>
+
+	9c. Electricité Coupée? <var v9c>
+		commentaires <var vCom9c>
+
+	9d. Réseau de Gaz Coupé? <var v9d>
+		commentaires <var vCom9d>
+
+	9e. Réseau d'eau Coupé? <var v9e>
+		commentaires <var vCom9e>
+
+	9f. Eau Potable Disponible? <var v9f>
+		commentaires <var vCom9f>
+	
+	9g. réseau de communication coupé? <var v9g>
+		commentaires <var vCom9g>
+-------------------------------------------------------------------- 	
+Conditions de transmission : <var vMode> / <var vBande> / <var vRMS>
+-------------------------------------------------------------------- 
+Express Sending Station: <MsgSender>
+Senders Express Version: <ProgramVersion>
+Senders Template Version: <TemplateVersion>
+
+Version des formulaires : V5.2
+

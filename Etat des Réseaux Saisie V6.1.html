@@ -1,0 +1,351 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<title>Etat des Réseaux Saisie V6.1</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css"
+		href="file://C:\RMS Express\Global Folders\Templates\FNRASEC\inc\CommonStyles.css" />
+</head>
+<!-- Début du formulaire -->
+
+<body onload="SetDateToUTC()">
+	<form onsubmit="return confirm('Cliquez sur OK et fermez la fenêtre de navigateur vide.');" method="post"
+		id="Etat des Réseaux" enctype="multipart/form-data" action="http://{FormServer}:{FormPort}">
+
+		<table id="HeaderBody" class="table_borders_orange">
+			<!-- Ligne 1 : Identité FNRASEC -->
+			<tr>
+				<td height="35" bgcolor="white" align="center">
+					<img src="file://C:\RMS Express\Global Folders\Templates\FNRASEC\inc\Logo_FNRASEC.jpg"> </img>
+				</td>
+			</tr>
+			<!-- Ligne 2 Type de Message -->
+			<tr valign="middle" align="center" bgcolor="Gainsboro">
+				<td height="25">
+					<span class="LblMessage">Etat des Réseaux N°</span>
+					<input name="PSit" type="text" "="" id=" PSit" tabindex="96" onkeypress="return isNumberKey(event)"
+						onchange="if (this.value=='-') this.value='N/A'" size="4" maxlength="54" align="center"
+						style="background-color: Lightyellow">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+					&emsp;&emsp;&emsp;
+					<button>
+						<span style="background-color:LightYellow" style="color: red" </span>
+							<a target="_blank"
+								href="file://c:\RMS Express\Global Folders\Templates\FNRASEC\Boutons Aide\Préconisations pour la 1ère partie.pdf">Préconisations
+								pour la 1ère partie </a>
+							</button>
+							&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+							<button>
+								<span style="background-color:LightYellow" style="color: red" </span>
+									<a target="_blank"
+										href="file://c:\RMS Express\Global Folders\Templates\FNRASEC\Boutons Aide\liste des Indicatifs.pdf">Liste
+										des Indicatifs</a>
+									</button>
+				</td>
+			</tr>
+		</table>
+		<table class="table_borders">
+			<!-- Ligne 1 : Numéro du message  -->
+			<table width="980px" style="border:3px solid orange; border-top-style: none;">
+				<tr valign="top">
+					<td>
+						<span class="LblLabels2">1. Message N°:</span>
+						<select name="vLieu" size="1" id="vLieu" ;required="required">
+							<option value="Autre" selected="selected"> Autre</option>
+							<option value="COGIC">COGIC </option>
+							<option value="COZ-Est">COZ-Est </option>
+							<option value="COZ-Idf">COZ-Idf </option>
+							<option value="COZ-Nord">COZ-Nord </option>
+							<option value="COZ-Ouest ">COZ-Ouest </option>
+							<option value="COZ-Sud">COZ-Sud </option>
+							<option value="COZ-SE">COZ-SE </option>
+							<option value="COZ-SO ">COZ-SO</option>
+							<option value="Outremer">Outremer </option>
+							<option value="COD">COD</option>
+						</select>
+						<input style="color: red;" title="Vous pouvez écraser cette référence avec votre propre numérotation"
+							name="SeqNum" id="SeqNum" value="{SeqNum}" size="6" maxlength="6" />
+
+						<span class="LblLabels2">&emsp;2. Date & Heure: </span>
+						<input id="DateTime" value="{DateTime}" size="20" name="DateTime" maxlength="23"
+							placeholder="Cliquer pour entrer l'heure" title="Heure UTC par defaut vous pouvez la changer" />
+						<input id="BtnDate" type="button" value="-> Locale" onclick="SetDateToUTC()"
+							title="Cliquer pour basculer en heure UTC ou Locale" />
+
+						<span class="LblLabels2">&emsp;3.Call Station: </span>
+						<input style="color: red;" name="msgSender" id="msgSender" value="{msgSender}" size="8" maxlength="8">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<span class=" LblLabels2">4. Indicatif opérateur&nbsp;: </span>
+						<input name="vOper" required="required" title="Identifiant de l'expéditeur" size="10" maxlength="10"
+							style="background-color:lightblue" />
+
+						<span class="LblLabels2">5. Autorité origine du message : </span>
+						<input name="Fm_Name_Exp" required="required" title="Identifiant de l'expéditeur" size="35" maxlength="30"
+							style="background-color:lightgreen" />
+					</td>
+				</tr>
+				<!-- Ligne 2 : Degré d'urgence -->
+				<tr style="vertical-align: top;">
+					<td style="text-align: left; vertical-align: top;">
+						<span class="LblLabels2">6. Indicatifs des destinataires : </span>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<textarea name="vTo" placeholder=" liste des Call concernés" rows="1" cols="70"
+							onkeyup="AutoGrowTextArea(this)" contenteditable="true" style="background-color:Lightblue">
+						</textarea>
+					</td>
+				</tr>
+				<td>
+					<span class="LblLabels2">7. Autorités destinataires du message .: </span>
+					<textarea name="To_Name_Dest" placeholder=" Listes des Autorités concernées" rows="1" cols="65"
+						onkeyup="AutoGrowTextArea(this)" contenteditable="true" style="background-color:Lightgreen">
+					</textarea>
+				</td>
+				</tr>
+				<tr>
+					<td>
+						<style="white-space: nowrap; background-color: LightYellow;">
+							<span class="LblLabels2">8. Priorité: </span>&emsp;
+							<span class="LblRed"> <input name="Priority"
+									onclick="document.getElementById('Priority').value=this.value" value="IMMEDIAT" type="radio" />
+								Immédiat</span>
+							<span class="LblOrange"> <input name="Priority"
+									onclick="document.getElementById('Priority').value=this.value" value="URGENT" type="radio" />
+								Urgent</span>
+							<span class="LblGreen"> <input name="Priority"
+									onclick="document.getElementById('Priority').value=this.value" value="ROUTINE" checked="checked"
+									type="radio" />
+								Routine</span>
+
+							&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+
+							<style="white-space: nowrap; background-color: LightYellow;">
+								<span class="LblLabels2">9. Niveau de Confidentialité: </span>&emsp;
+								<span class="LblRed"> <input name="vConfid"
+										onclick="document.getElementById('Priority').value=this.value" value="DR" checked="checked"
+										type="radio" />
+									DR</span>
+								<span class="LblOrange"> <input name="vConfid"
+										onclick="document.getElementById('Priority').value=this.value" value="Normal" type="radio" />
+									Normal</span>
+					</td>
+				</tr>
+
+				<!-- Ligne 7 Type d'évènement ---------------------------------------------------------->
+				<tr>
+					<td>
+						<span class="Labels">7. Evènement :</span>&emsp;
+						<select name="vEvent" id="vEvent" size="1" onchange="ConfigEventOther(this.value)" required="required">
+							<option value=" -  "> - </option>
+							<option value="Ouragan">Ouragan </option>
+							<option value="Tempête tropicale">Tempête tropicale </option>
+							<option value="Tornade/Vents violents">Tornade/Vents violents </option>
+							<option value="Inondation">Inondation </option>
+							<option value="Tremblement de Terre">Tremblement de Terre </option>
+							<option value="Feux">Feux </option>
+							<option value="Raz de Marée">Raz de Marée </option>
+							<option value="Autre">Autre </option>
+						</select>
+
+						<span style="font-size: 15px;">
+							<input name="vOther" id="vOther" title="Autre évènement" placeholder="Sélectionner l'évènement" size="40"
+								maxlength="19">
+						</span>
+					</td>
+				</tr>
+			</table>
+			<!---------------------------------------------------------------------------------->
+			<!---------- Etat des Réseaux ------------------------------------------------------>
+			<!---------------------------------------------------------------------------------->
+			<table width="980px" style="border:3px solid orange; border-top-style: none;">
+				<tr>
+					<td colspan="3">
+						<span class="Labels">9. Description de l'état des réseaux routiers et fluides</span>
+					</td>
+				</tr>
+				<tr height="50">
+					<td class="style_par8">
+						&emsp;9a. Reste-t-il des Accès Routiers carrossables à la zone ? <br />
+						&emsp;(Oui / Non / Partiel)
+
+						<class="style_par8_select">
+							<select name="v9a" id="v9a">
+								<option value="Non" selected="selected">Non</option>
+								<option value="Oui">Oui</option>
+								<option value="Partiel">Partiel</option>
+							</select>
+					</td>
+					<td class="style_par8_comment">
+						Commentaires :<br />
+						<textarea name="vCom9a" placeholder="Donner le maximum de précision sur les accès possibles" rows="2"
+							cols="65" onkeyup="AutoGrowTextArea(this)" contenteditable="true"></textarea>
+					</td>
+				</tr>
+				<tr height="50">
+					<td class="style_par8">
+						&emsp;9b. Reste-t-il des Accès Routiers Tous Terrains à la zone ? <br />
+						&emsp;(Oui / Non / Partiel)
+
+						<class="style_par8_select">
+							<select name="v9b" id="v9b">
+								<option value="Non" selected="selected">Non</option>
+								<option value="Oui">Oui</option>
+								<option value="Partiel">Partiel</option>
+							</select>
+					</td>
+					<td>
+						Commentaires :<br />
+						<textarea name="vCom9b" id="vCom9b" placeholder="Donner le maximum de précision sur les accès possibles"
+							rows="2" cols="65" onchange="this.value=RWS(this.value)" onkeyup="AutoGrowTextArea(this)"
+							contenteditable="true"></textarea>
+					</td>
+				</tr>
+				<tr>
+					<td class="style_par8">
+						&emsp;9c. Electricité coupée<br />
+						&emsp;(Oui / Non / Partiel)
+
+						<class="style_par8_select">
+							<select name="v9c" id="v9c">
+								<option value="Non" selected="selected">Non</option>
+								<option value="Oui">Oui</option>
+								<option value="Partiel">Partiel</option>
+							</select>
+					</td>
+					<td class="style_par8_comment">
+						Commentaires :<br />
+						<textarea name="vCom9c" id="vCom9c" placeholder="Donner le maximum de précisions..." rows="2" cols="65"
+							onchange="this.value=RWS(this.value)" onkeyup="AutoGrowTextArea(this)" contenteditable="true"></textarea>
+					</td>
+				</tr>
+				<tr>
+					<td class="style_par8">
+						&emsp;9d. Réseau de gaz coupé<br />
+						&emsp;(Oui / Non / Partiel)
+
+						<class="style_par8_select">
+							<select name="v9d" id="v9d">
+								<option value="Non" selected="selected>Non</option>
+					<option value=" Oui">Oui</option>
+								<option value="Partiel">Partiel</option>
+
+							</select>
+					</td>
+					<td class="style_par8_comment">
+						Commentaires :<br />
+						<textarea name="vCom9d" id="vCom9d" placeholder="Donner le maximum de précisionS..." rows="2" cols="65"
+							onchange="this.value=RWS(this.value)" onkeyup="AutoGrowTextArea(this)" contenteditable="true"></textarea>
+					</td>
+				</tr>
+
+				<tr>
+					<td class="style_par8">
+						&emsp;9e. Réseau d'eau coupé<br />
+						&emsp;(Oui / Non / Partiel)
+
+						<class="style_par8_select">
+							<select name="v9e" id="v9e">
+								<option value="Non" selected="selected">Non</option>
+								<option value="Oui">Oui</option>
+								<option value="Partiel">Partiel</option>
+							</select>
+					</td>
+					<td class="style_par8_comment">
+						Commentaires :<br />
+						<textarea name="vCom9e" placeholder="Donner le maximum de précisions" rows="2" cols="65"
+							onchange="this.value=RWS(this.value)" onkeyup="AutoGrowTextArea(this)" contenteditable="true"></textarea>
+					</td>
+				</tr>
+
+				<tr>
+					<td class="style_par8">
+						&emsp;9f. Eau potable coupée<br />
+						&emsp;(Oui / Non)
+
+						<class="style_par8_select">
+							<select name="v9f" id="v9f">
+								<option value="Non" selected="selected">Non</option>
+								<option value="Oui">Oui</option>
+								<option value="Partiel">Partiel</option>
+							</select>
+					</td>
+					<td class="style_par8_comment">
+						Commentaires :<br />
+						<textarea name="vCom9f" id="vCom9f" placeholder="Donner le maximum de précisions" rows="2" cols="65"
+							onchange="this.value=RWS(this.value)" onkeyup="AutoGrowTextArea(this)" contenteditable="true"></textarea>
+					</td>
+				</tr>
+
+				<tr>
+					<td class="style_par8">
+						&emsp;9g. Réseau de communication coupé<br />
+						&emsp;(Oui / Non / Partiel)
+
+						<class="style_par8_select">
+							<select name="v9g" id="v9g">
+								<option value="Non" selected="selected">Non</option>
+								<option value="Oui">Oui</option>
+								<option value="Partiel">Partiel</option>
+							</select>
+					</td>
+					<td class="style_par8_comment">
+						Commentaires :<br />
+						<textarea name="vCom9g" id="vcom9g"
+							placeholder="Donner le maximum de précisions (Téléphonie fixe & mobile, internet, TNT, ..." rows="2"
+							cols="65" onchange="this.value=RWS(this.value)" onkeyup="AutoGrowTextArea(this)"
+							contenteditable="true"></textarea>
+					</td>
+				</tr>
+			</table>
+			<!---------------------------------------------------------------------------------->
+			<!---------- Saisie des conditions d'émission--------------------------------------->
+			<!-- Ce bloc n'est visible que pour le type de message "EXERCICE 				  -->
+			<!---------------------------------------------------------------------------------->
+			<table id="RMS" class="table_borders" hidden="hidden">
+				<tr bgcolor="lightgray">
+					<td colspan="5">
+						<span class="LblBlue">:</span>
+
+
+					</td>
+				</tr>
+			</table>
+			<!---------------------------------------------------------------------------------->
+			<!----------------- Ligne de boutons ----------------------------------------------->
+			<!---------------------------------------------------------------------------------->
+			<table width="980px" style="border:3px solid orange; border-top-style: none;">
+				<tr class="formtext">
+					<td colspan="3">
+						&nbsp;&nbsp;
+						<input class="BtnSubmit" value="Envoyer" name="Submit" method="Post" id="Submit"
+							enctype="multipart/form-data" class="BtnSubmit" type="submit" />
+						&nbsp; &nbsp;
+						<input class="BtnClearData" value="Effacer les données" name="ResetForm" type="reset" />
+					</td>
+				</tr>
+
+				<!-- Dernière ligne : Descriptif du formulaire et version -->
+				<tr class="formtext">
+					<td>
+						Indicatif émetteur : {msgSender}
+					</td>
+					<td colspan="2" align="right">
+						<span class="LblVersion">Formulaire de saisie de l'état des réseaux / Ver 5.1 par F1COB</span>
+					</td>
+				</tr>
+			</table>
+	</form>
+	<!-- Functions communnes à tous les formulaires -->
+	<script type="text/javascript"
+		src="file://C:\RMS Express\Global Folders\Templates\FNRASEC\inc\CommonFunctions.js"></script>
+</body>
+
+</html>
