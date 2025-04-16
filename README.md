@@ -53,25 +53,22 @@ Pour un bon fonctionnement de Winlink, nous devons tous avoir une version identi
 
 ### Prérequis
 
-* Si le dossier `C:\RMS Express\Global Folders\Templates\FNRASEC` n'existe pas, vous devez le créer. ![Screen : Dossier Windows de Winlink Templates FNRASEC](./img/screen1.jpg)
+* Si le dossier `C:\RMS Express\Global Folders\Templates\FNRASEC` n'existe pas, vous devez le créer. 
 
 ### Procédure de mise à jour
 
 Voici la procédure pour mettre à jour les templates sur votre ordinateur :
 
 1. Si le dossier `C:\RMS Express\Global Folders\Templates\FNRASEC` n'est pas vide, supprimer tout le contenu (fichiers et dossier).
-2. Télécharger le contenu du répertoire le plus récent du partage. ![Screen : Télécharger](./img/screen2.jpg) ![Screen : Télécharger le zip](./img/screen3.jpg)
-
+2. Télécharger le contenu du répertoire le plus récent du partage.
 > Vous avez récupéré le fichier d'archive (zip) sur votre ordinateur
 
 1. Décompresser dans le dossier `C:\RMS Express\Global Folders\Templates\FNRASEC` ![Screen : Décompresser le zip](./img/screen4.jpg)
 
 > Voilà vous pouvez maintenant utiliser les nouveaux templates dans Winlink
 
-![Screen : Selection du template](./img/screen5.jpg)
-
 Les nouveaux templates ont une aide en ligne disponible. N'hésitez pas à la consulter :
-![Screen : Telecharger le zip](./img/screen6.jpg)
+
 
 ::: info
 Si vous souhaitez contribuer pour améliorer ces templates : contactez [Marc F8BNN](mailto:f8bnn@wanadoo.fr)
